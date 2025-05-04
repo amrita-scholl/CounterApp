@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter Click</title>
+</head>
+<body>
+<h1>Click Counter</h1>
+<button onclick="incrementCounter()">Click Me!</button>
+<p>Current Count: <span id="count">0</span></p>
+
+<script>
+    function incrementCounter() {
+        fetch('/api/counter')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count').innerText = data;
+            });
+    }
+</script>
+</body>
+</html>
